@@ -4,42 +4,38 @@
 
 ```mermaid
 flowchart LR
-  Dev[Local Dev Machine Antigravity] -- SSH / SCP --> GPU[Remote GPU Server]
-  GPU -- Runs --> NIM[NVIDIA Cosmos NIM cosmos3-nano-reasoner]
-  Dev -- HTTP REST / Port Forward --> NIM
-  Dev -- Sync --> Notepad[Shared Participant Notepad]
+  Dev[Workstation] -- SSH port-forward --> GPU[Brev RTX PRO 6000]
+  GPU -- Runs --> NIM[Cosmos Reasoner NIM nvidia/cosmos3-nano-reasoner]
+  App[Streamlit app.py] -- OpenAI-compatible HTTP --> NIM
   Dev -- Push/Pull --> Repo[Swiss-ai-Weeks / compliance-inspector]
 ```
 
-## Environments & Connectivity
+## Components
 
-### 1. Remote GPU Server
-- **Role**: Model inference host.
-- **Model**: `cosmos3-nano-reasoner`.
-- **Access**: Configured via SSH tunnel / key-based auth.
-- **Endpoint**: NIM exposed locally or via forwarded port (e.g. `http://localhost:8000/v1` or remote IP).
+### 1. GPU host — Cosmos Reasoner NIM
+- **Role**: multimodal inference for temporal action recognition.
+- **Image**: `nvcr.io/nim/nvidia/cosmos3-reasoner:latest`, size selected with
+  `NIM_MODEL_SIZE=nano` (~34 GB VRAM, BF16).
+- **Model id**: `nvidia/cosmos3-nano-reasoner` — the `nvidia/` prefix matters.
+- **Endpoint**: OpenAI-compatible at `/v1`, readiness at `/v1/health/ready`.
+- **Full procedure**: [`docs/brev-nim-deployment.md`](../../docs/brev-nim-deployment.md).
 
-### 2. Local Workstation
-- **OS**: Windows (Antigravity environment).
-- **Runtime**: Python 3.10+, OpenCV, Streamlit, OpenAI SDK.
-- **Data**: Local test videos in `video_ikea/`.
+### 2. Streamlit app
+- **Runtime**: Python 3.10+, OpenCV, Streamlit, OpenAI SDK (`requirements.txt`).
+- **Config**: `NIM_BASE_URL`, `NIM_MODEL`, `NIM_API_KEY` — see `.env.example`.
+  These must be **exported into the shell**; the app does not call
+  `load_dotenv()`.
+- **Data**: test videos in `videos/` (gitignored); sourced from the Stanford
+  Digital Repository per IKEA-Manuals-at-Work.
 
-### 3. Collaboration & Coordination
-- **Shared Notepad**: Live coordination document shared with other hackathon participants (containing shared endpoints, credentials, notes).
-- **VSS Integration**: Video Storage Server endpoints for streaming footage directly if needed.
+## Quick start
 
-## Setup Procedure
-1. Establish SSH tunnel to GPU server if port is not public:
-   ```bash
-   ssh -L 8000:localhost:8000 user@gpu-server
-   ```
-2. Set environment variables on local machine:
-   ```powershell
-   $env:NIM_BASE_URL="http://localhost:8000/v1"
-   $env:NIM_MODEL="cosmos3-nano-reasoner"
-   $env:NIM_API_KEY="your-key-or-token"
-   ```
-3. Run local UI:
-   ```powershell
-   streamlit run app.py
-   ```
+```bash
+export NGC_API_KEY='nvapi-...'
+# ... deploy the NIM per docs/brev-nim-deployment.md ...
+
+export NIM_BASE_URL=http://localhost:8000/v1
+export NIM_MODEL=nvidia/cosmos3-nano-reasoner
+export NIM_API_KEY=not-needed
+streamlit run app.py
+```
