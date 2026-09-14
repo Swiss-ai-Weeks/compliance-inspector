@@ -1,0 +1,18 @@
+[
+    {
+        "id": "step1",
+        "description": "Open the box and take out the wooden panels"
+    },
+    {
+        "id": "step2",
+        "description": "Attach the side panels to the bottom shelf using wooden dowels"
+    },
+    {
+        "id": "step3",
+        "description": "Screw in the metal screws to secure the side panels"
+    },
+    {
+        "id": "step4",
+        "description": "Attach the top shelf panel"
+    }
+]
