@@ -16,6 +16,25 @@ generous headroom.
 | **NGC Personal API Key** | Must be a *Personal API Key* with **Catalog** access (`https://org.ngc.nvidia.com/setup/personal-keys`). A legacy/other-type key authenticates to `nvcr.io` but fails later — see [Troubleshooting](#5-troubleshooting). |
 | Free disk | ~60 GB for the image plus cached weights. |
 
+### Dependency pin
+
+`requirements.txt` pins `openai==1.14.3` but leaves `httpx` unpinned. Current
+`httpx` (>= 0.28) removed the `proxies` argument that this `openai` release
+passes, so a fresh install fails at client construction with:
+
+```
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
+```
+
+Constrain `httpx` when installing:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt 'httpx<0.28'
+```
+
+(Adding `httpx<0.28` to `requirements.txt` would fix this at the source.)
+
 Export the key once, in every shell that runs the commands below:
 
 ```bash
@@ -122,8 +141,16 @@ the wrong type. `docker login` succeeded (any valid key can pull the image),
 but the container cannot resolve a model profile. Generate a **Personal API
 Key** with **Catalog** access and retry.
 
-**`404 model not found`** from the app — `NIM_MODEL` is missing the `nvidia/`
-prefix. Compare against `curl -s http://localhost:8000/v1/models`.
+**The checklist never advances and no error is shown** — most often
+`NIM_MODEL` is missing the `nvidia/` prefix. `NIMClient.analyze_action` catches
+every exception, prints to stderr and returns the string `"Error"`, which
+`ComplianceEngine.update` treats as a no-op; the Streamlit UI therefore looks
+idle rather than failing. Check the terminal running Streamlit for
+`Error calling NIM: Error code: 404 ...`, and compare your `NIM_MODEL` against:
+
+```bash
+curl -s http://localhost:8000/v1/models
+```
 
 **Container exits immediately** — check `docker logs cosmos3-reasoner`. Out-of-
 memory on a smaller GPU means `NIM_MODEL_SIZE=nano` is still too large for the
