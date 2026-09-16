@@ -1,0 +1,152 @@
+{
+  "task_name": "IKEA TJUSIG Bench Assembly",
+  "document_code": "AA-354147-1",
+  "total_manual_steps": 13,
+  "expected_steps": [
+    {
+      "step_id": 1,
+      "manual_reference": "Step 1 (p. 4)",
+      "name": "Insert dowels and attach bottom rails",
+      "description": "Insert 2 wooden dowels (101350) into the ends of the two long square rails and seat them into the side ladder frame[cite: 3].",
+      "visual_cues": [
+        "Operator holding small light-colored cylindrical wooden dowels[cite: 3]",
+        "Inserting dowels into the end-grain holes of two long square wooden beams[cite: 3]",
+        "Joining the two long beams perpendicular into the outer rectangular ladder frame lying flat on the floor[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 2,
+      "manual_reference": "Step 2 (p. 4)",
+      "name": "Insert barrel nuts and tighten long bolts",
+      "description": "Insert 2 cylindrical barrel nuts (100505) into the side slots of the rails and fasten with 2 long bolts (100263) using the Allen key (100001)[cite: 3].",
+      "visual_cues": [
+        "Inserting cylindrical metal barrel nuts with a slot into side holes of the rails[cite: 3]",
+        "Using a flat tool or fingers to orient the cross-dowel slot[cite: 3]",
+        "Threading long silver bolts through the outer frame into the rails[cite: 3]",
+        "Rotational wrist motion with an L-shaped silver Allen key[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 3,
+      "manual_reference": "Step 3 (p. 5)",
+      "name": "Rotate frame onto base",
+      "description": "Rotate the assembled partial frame 90 degrees downward so the ladder frame rests flat on the floor and the rails point upward[cite: 3].",
+      "visual_cues": [
+        "Operator lifting and rotating the rigid assembly 90 degrees[cite: 3]",
+        "The ladder side piece changes from standing vertically to resting flat on the ground[cite: 3]",
+        "The two attached rails now project vertically upwards[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 4,
+      "manual_reference": "Step 4 (p. 5)",
+      "name": "Attach vertical side posts",
+      "description": "Insert 2 wooden dowels (101350) into the upright post ends and mount the two vertical upright posts onto the base frame[cite: 3].",
+      "visual_cues": [
+        "Inserting wooden dowels into the ends of two square upright posts[cite: 3]",
+        "Mounting vertical wooden posts into the exposed holes on the base frame[cite: 3]",
+        "Pressing joints together to ensure flush contact[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 5,
+      "manual_reference": "Step 5 (p. 6)",
+      "name": "Insert 6 metal rack tubes",
+      "description": "Slide 6 hollow metallic shoe rack tubes vertically into the pre-drilled holes in the bottom horizontal rails[cite: 3].",
+      "visual_cues": [
+        "Operator holding slender silver/metallic hollow poles[cite: 3]",
+        "Inserting poles vertically one by one into round holes along the bottom rails[cite: 3]",
+        "Six vertical metal tubes standing upright between the wooden posts[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 6,
+      "manual_reference": "Step 6 (p. 7)",
+      "name": "Fold cardboard alignment template tabs",
+      "description": "Fold up the perforated corner tabs on the flat cardboard tube-alignment guide sheet[cite: 3].",
+      "visual_cues": [
+        "Operator handling a flat brown/grey perforated cardboard sheet[cite: 3]",
+        "Bending the four distinct corner tabs along pre-scored fold lines[cite: 3]",
+        "Cardboard sheet displaying 6 round perforated hole patterns[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 7,
+      "manual_reference": "Step 7 (p. 7)",
+      "name": "Position cardboard alignment template",
+      "description": "Lower the folded cardboard template over the top ends of the 6 vertical metal tubes to hold them parallel and aligned[cite: 3].",
+      "visual_cues": [
+        "Sliding the cardboard sheet downward over the open top ends of the 6 metal tubes[cite: 3]",
+        "The sheet resting horizontally across all 6 tubes near the top[cite: 3]",
+        "Tubes stabilized from wobbling by the template[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 8,
+      "manual_reference": "Step 8 (p. 8)",
+      "name": "Mount top ladder frame",
+      "description": "Align and lower the top ladder frame onto the upright wooden posts and the top ends of the 6 metal tubes[cite: 3].",
+      "visual_cues": [
+        "Operator picking up the second rectangular wooden ladder frame[cite: 3]",
+        "Lowering the frame horizontally onto the exposed tops of posts and tubes[cite: 3]",
+        "Pressing down to mate the tube ends and wooden joints simultaneously[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 9,
+      "manual_reference": "Step 9 (p. 8)",
+      "name": "Fasten top frame hex bolts",
+      "description": "Insert 2 short hex bolts (100102) into the top outer holes and fasten with the Allen key (100001)[cite: 3].",
+      "visual_cues": [
+        "Placing short flat-head hex bolts into counterbored holes on the top frame[cite: 3]",
+        "Inserting the short end of the L-shaped Allen key into the bolt socket[cite: 3]",
+        "Repetitive rotational tightening motion at the upper corners of the frame[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 10,
+      "manual_reference": "Step 10 (p. 8)",
+      "name": "Remove and discard cardboard template",
+      "description": "Tear or slide out the cardboard alignment template from between the metal tubes and discard it[cite: 3].",
+      "visual_cues": [
+        "Operator pulling or ripping the cardboard template out from the tube grid[cite: 3]",
+        "Crumpling or setting aside the cardboard piece[cite: 3]",
+        "Throwing the cardboard sheet into a waste bin or dropping it out of frame[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 11,
+      "manual_reference": "Step 11 (p. 9)",
+      "name": "Flip bench assembly onto side",
+      "description": "Rotate the entire three-dimensional assembly onto its side to expose the underside corner joints[cite: 3].",
+      "visual_cues": [
+        "Operator using two hands to tip the entire standing rack sideways 90 degrees[cite: 3]",
+        "Assembly repositioned horizontally across the floor[cite: 3]",
+        "Bottom corner fastening holes now visible and accessible[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 12,
+      "manual_reference": "Step 12 (p. 9)",
+      "name": "Fasten remaining side hex bolts",
+      "description": "Insert and tighten the remaining 2 short hex bolts (100102) into the lower frame joints using the Allen key[cite: 3].",
+      "visual_cues": [
+        "Inserting two short flat-head bolts into the frame edge[cite: 3]",
+        "Tightening bolts using the silver Allen key while the unit rests on its side[cite: 3]",
+        "Verifying joints are drawn tight against the posts[cite: 3]"
+      ]
+    },
+    {
+      "step_id": 13,
+      "manual_reference": "Step 13 (p. 10)",
+      "name": "Mount frame onto top seat panel",
+      "description": "Lay the solid top seat panel face-down on the floor, place the assembled frame structure onto it, and secure using 7 screws (100214) with the Allen key (100001)[cite: 3].",
+      "visual_cues": [
+        "Placing large, solid flat rectangular wooden top bench plank on the floor[cite: 3]",
+        "Inverting the entire rack frame and lowering it centrally onto the plank[cite: 3]",
+        "Inserting 7 long threaded screw sleeves into pre-drilled holes along the inner rails[cite: 3]",
+        "Fastening all 7 points sequentially from underneath using the Allen key[cite: 3]"
+      ]
+    }
+  ]
+}
