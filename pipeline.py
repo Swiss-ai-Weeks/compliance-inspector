@@ -40,7 +40,7 @@ def run_pipeline():
         json.dump(observations, f, indent=2)
     print(f"OK: Cosmos analysis complete. Saved to {observations_output_path}")
 
-    print(f"\nThinking: Step 3: Running audit engine...")
+    print(f"\n[Thinking] Step 3: Running audit engine...")
     # The audit engine expects file paths
     generate_compliance_report(sop_path, observations_output_path, report_output_path)
     print(f"OK: Audit report generated at {report_output_path}")

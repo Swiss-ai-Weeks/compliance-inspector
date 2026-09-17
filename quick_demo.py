@@ -40,7 +40,7 @@ cap.release()
 # 3. Call NVIDIA hosted inference endpoint
 client = OpenAI(
     base_url=os.getenv("NIM_BASE_URL", "https://integrate.api.nvidia.com/v1"),
-    api_key=os.getenv("NVIDIA_API_KEY")
+    api_key=os.getenv("NVIDIA_API_KEY") or os.getenv("NGC_API_KEY")
 )
 
 prompt = (
