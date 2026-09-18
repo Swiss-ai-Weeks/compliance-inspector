@@ -1,0 +1,91 @@
+{
+  "task_name": "IKEA ÄPPLARÖ Bench Assembly",
+  "document_code": "AA-601524-4",
+  "total_manual_steps": 6,
+  "expected_steps": [
+    {
+      "step_id": 1,
+      "manual_reference": "Step 1 (p. 3)",
+      "name": "Insert dowels into side frame rails",
+      "description": "Insert 6 wooden dowels (128832) into the pre-drilled holes on the two long slatted side-frame rails, seating them into both side leg-and-slat sub-assemblies to prepare the wood-to-wood joints.",
+      "visual_cues": [
+        "Operator holding small ribbed cylindrical wooden dowels",
+        "Pressing dowels by hand into end-grain/face holes on two flat slatted rail assemblies lying face down",
+        "Two identical rectangular slatted panels, each with exposed dowel pins protruding from the joint edges",
+        "Close-up inset showing dowels seated flush into round holes"
+      ],
+      "completion_state": "Wooden dowels stick out of the slatted side rails or join them to the leg assemblies.",
+      "state_is_monotone": true
+    },
+    {
+      "step_id": 2,
+      "manual_reference": "Step 2 (p. 4)",
+      "name": "Attach bottom slat rail and raise first side",
+      "description": "Fit the long bottom slatted stretcher rail onto the dowels of one side leg assembly, then rotate that side upward from flat on the floor to a vertical standing position.",
+      "visual_cues": [
+        "Operator kneeling and pushing a long horizontal slatted rail into the dowel joints of an upright leg frame",
+        "Curved arrow indicating the leg-and-slat panel rotating upward off the floor",
+        "A second, smaller slatted end panel lying flat and unattached in the foreground",
+        "Close-up inset of a dowel aligning into a corner post hole"
+      ],
+      "completion_state": "At least one leg assembly stands vertically, joined to a long slatted bottom rail.",
+      "state_is_monotone": true
+    },
+    {
+      "step_id": 3,
+      "manual_reference": "Step 3 (p. 4)",
+      "name": "Raise second side to close the frame",
+      "description": "Rotate the second side leg assembly upward into place at the opposite end of the bottom slatted rail, closing the structure into a full open rectangular box frame.",
+      "visual_cues": [
+        "The bench frame now shown as a complete open box with slatted bottom and four vertical corner posts",
+        "Curved arrow showing the remaining leg panel swinging upright into its final position",
+        "Close-up inset of the finished corner joint with dowel and gap visible before fastening",
+        "No visible fasteners yet — posts held only by dowel friction fit"
+      ],
+      "completion_state": "Leg assemblies stand vertically at both ends, forming a closed rectangular frame.",
+      "state_is_monotone": true
+    },
+    {
+      "step_id": 4,
+      "manual_reference": "Step 4 (p. 5)",
+      "name": "Fasten corner posts with cross dowels and long bolts",
+      "description": "Insert 4 cross dowels/barrel nuts (117853) into the side holes of the four corner posts and secure each corner joint with a long domed-head bolt (113152), tightened using the Allen key (100001). The similar-looking pointed dowel screw (106581) is explicitly not used here.",
+      "visual_cues": [
+        "Inset showing two similar fasteners side by side with one crossed out, distinguishing bolt 113152 from dowel screw 106581",
+        "Operator inserting a slotted cylindrical cross dowel into a small round side hole near a corner post",
+        "Long silver bolt with a flat domed head being threaded horizontally through the post into the cross dowel",
+        "L-shaped silver Allen key engaged in the bolt head with a rotational tightening motion at each of the four top corners"
+      ],
+      "completion_state": "Bolt heads are visible on all four corner posts of the frame.",
+      "state_is_monotone": true
+    },
+    {
+      "step_id": 5,
+      "manual_reference": "Step 5 (p. 6)",
+      "name": "Fasten center stretcher with cross dowels and dowel screws",
+      "description": "Insert 2 cross dowels (113153) into the center support beam and secure the middle stretcher to the frame using 2 pointed dowel screws (106581), driven and tightened with the Allen key (100001).",
+      "visual_cues": [
+        "Close-up inset of a slotted cross dowel being pressed into a round hole on the underside of the center rail",
+        "Pointed, coarse-threaded dowel screw with a flat domed head being driven into the cross dowel from outside the frame",
+        "L-shaped Allen key engaged with the screw head, shown with a curved motion line indicating turning",
+        "View from beneath the bench frame showing the diagonal center support beam"
+      ],
+      "completion_state": "A middle stretcher beam is attached across the center of the frame.",
+      "state_is_monotone": true
+    },
+    {
+      "step_id": 6,
+      "manual_reference": "Step 6 (p. 7)",
+      "name": "Screw seat-slat support ledgers to corner posts",
+      "description": "Drive 4 Phillips-head wood screws (10046802) through the inner face of the corner posts to fix the seat-slat support ledgers in place, using a cross-head screwdriver.",
+      "visual_cues": [
+        "Close-up inset of a Phillips/cross-head wood screw with a curved arrow showing rotational driving motion",
+        "Screws being driven horizontally into the inner faces of the four corner posts just below the top edge",
+        "Completed slatted bench frame shown fully upright with all four corners now fastened",
+        "No Allen key visible in this step — only a cross-head screwdriver icon"
+      ],
+      "completion_state": "Support ledgers are screwed to the inner faces of the corner posts.",
+      "state_is_monotone": true
+    }
+  ]
+}

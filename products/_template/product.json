@@ -1,0 +1,10 @@
+{
+  "name": "PRODUCT NAME (e.g. KALLAX shelf)",
+  "category": "Shelf",
+  "manual_id": "AA-000000-0",
+  "manual": "manual.pdf",
+  "step_pages": {"1": 3, "2": 3, "3": 4},
+  "notes": [
+    "step_pages: printed step number -> 1-based PDF page that shows its drawing. Steps left out are checked from text only."
+  ]
+}

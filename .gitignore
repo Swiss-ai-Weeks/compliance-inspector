@@ -42,3 +42,8 @@ IKEA-Manuals-at-Work-main/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Web app: generated
+outputs/
+backend/static/
+frontend/node_modules/

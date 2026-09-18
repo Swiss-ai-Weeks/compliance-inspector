@@ -1,0 +1,12 @@
+# Web app backend. Versions are the ones the app was tested with.
+fastapi==0.141.1
+uvicorn[standard]==0.53.0
+python-multipart==0.0.32
+sse-starlette==3.4.11
+httpx==0.27.2
+openai==1.14.3
+numpy==1.26.4
+opencv-python-headless==4.9.0.80
+imageio-ffmpeg==0.6.0
+pymupdf==1.28.2
+pydantic==2.13.5

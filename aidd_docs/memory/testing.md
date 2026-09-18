@@ -1,49 +1,35 @@
 # Testing
 
-How the project is tested: the layers, the tools, and the conventions. Where tests live and how to run them.
+## Accuracy: `tools/evaluate.py`
 
-> CLI internals (tiers, fixtures, naming, mocking) live in [`cli/aidd_docs/memory/testing.md`](../../cli/aidd_docs/memory/testing.md). This page is the repository-wide view.
+The main test. Runs the same `backend/pipeline.py` the website runs, on a demo product, and compares
+it with the human timestamps in `products/<name>/ground_truth/`.
 
-## Strategy
+```bash
+.venv/bin/python -m tools.evaluate bench_tjusig                 # full run, ~3 min with state checks
+.venv/bin/python -m tools.evaluate bench_tjusig --reuse         # re-align saved scores, no model calls
+.venv/bin/python -m tools.evaluate bench_applaro --mode choice
+```
 
-| Surface | Validated by |
-| --- | --- |
-| Skills, agents, rules (markdown) | each action's own `## Test`, run end to end against a real project |
-| `scripts/` and bundled hooks | `node --test` under the wrapper below |
-| `cli/` | vitest, four projects — see the CLI bank |
-| `kanban/` | its own vitest suite. It shares no code with `cli/` |
-| Per-tool distributions | golden snapshots in `cli/tests/golden/`, mirrored by the `build-per-tool` CI matrix; Claude Code's own `plugin validate` over a fresh claude build, in `cli-ci.yml` |
-| Browser journeys | `aidd-dev:11-browser-qa`, see below |
+It prints chunk x step precision/recall, per-step status against the labels, mean IoU (unlocated
+labelled steps count as 0), and verdict accuracy next to what "mark every step done" would score.
+A change is only an improvement if it beats that trivial line on both videos.
 
-## Tools
+- `--reuse` makes threshold changes free to test, since scores are saved per mode under
+  `outputs/eval/<product>/<video>/<mode>/`.
+- Model output varies between runs (about a quarter of ratings), so compare approaches on the same
+  saved grid, and do not read much into a single fresh run.
+- Only two labelled videos exist: tuning thresholds against them overfits quickly.
 
-| Tool | Use |
-| --- | --- |
-| vitest | `cli/`, `kanban/` |
-| stryker | mutation, per CLI scope, gated in `cli-ci.yml` on the scopes a change touches |
-| knip | dead code, before push and in `cli-ci.yml` |
-| `@playwright/cli` | browser QA evidence, pinned, never an app dependency |
+## Unit checks
 
-## Conventions
+No test suite yet. `align.align` has been checked by hand on three toy grids (in order, a skipped
+step, an out-of-order step) and `detect.fit_transition` on five answer patterns; both are pure
+functions and the first candidates for `pytest`.
 
-- A plugin never holds its own tests: `hooks/` ships recursively into user projects. Tests for a bundled script go in `scripts/__tests__/`.
-- The scripts suite writes into a git repository. Run it wrapped, never bare: unwrapped it can overwrite this repository's own `.git/hooks`, and `.git` is in no history.
+## End to end
 
-## Run
-
-| Command | Scope |
-| --- | --- |
-| `pnpm test:changed` | only the specs a change can break — vitest resolves the CLI's import graph, and the plugin specs are selected by the paths their own text names. What to run while working |
-| `node scripts/check-tests-leave-git-alone.js -- node --test 'scripts/__tests__/**/*.test.js'` | repository scripts and hooks |
-| `cd cli && pnpm test` | the four CLI projects. It does not build |
-| `cd cli && pnpm smoke` | built binary against `cli/scripts/smoke-tools.sh` |
-| `cd kanban && pnpm test` | the board |
-| `pnpm exec lefthook run pre-push` | the local gate before pushing |
-
-CI runs more: `validate.yml` re-runs the whole pre-commit over the whole tree on every push and pull request, and `cli-ci.yml` adds jobs no local hook has. Both are in `deployment.md`.
-
-## Browser QA
-
-- Runner: `npx --yes @playwright/cli@0.1.17`, the framework pin. Never `latest` during QA.
-- Also required: `ffmpeg` and `ffprobe`. Output is WebM evidence per scenario.
-- Owned by `aidd-dev:11-browser-qa`; this repository ships the capability, it has no browser journey of its own.
+Checked by driving the built app in headless Chromium (Playwright, outside the project): home =>
+demo => review and edit a step => run => live timeline => report, plus phone width (no horizontal
+scroll) and dark mode. Also run inside the Docker image against the host NIM. Playwright is not an
+app dependency.

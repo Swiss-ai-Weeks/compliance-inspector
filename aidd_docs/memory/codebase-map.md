@@ -1,48 +1,39 @@
 # Codebase Map
 
-The macro layout: the top-level areas and what each holds. A map to navigate, not the full tree.
-
-> Where things live inside the CLI is in [`cli/aidd_docs/memory/codebase-map.md`](../../cli/aidd_docs/memory/codebase-map.md).
-
-```mermaid
-flowchart TD
-    Root["framework/"] --> Plugins["plugins/"]
-    Root --> Cli["cli/"]
-    Root --> Kanban["kanban/"]
-    Root --> Scripts["scripts/"]
-    Root --> Docs["docs/"]
-    Root --> AiddDocs["aidd_docs/"]
-    Root --> Manifest[".claude-plugin/"]
-    Root --> Claude[".claude/"]
-    Root --> GH[".github/"]
-```
-
-## Areas
+The top-level areas and what each holds. A map to navigate, not the full tree.
 
 | Path | Holds |
 | --- | --- |
-| `plugins/` | the product — one dir per plugin, each with `plugins/<plugin>/.claude-plugin/plugin.json` and `skills/`, optionally `agents/`, `commands/`, `hooks/`, `rules/` |
-| `cli/` | the `aidd` binary. Has its own memory bank and `CLAUDE.md` |
-| `kanban/` | the task board. A private package with its own lockfile, unwired from the CLI |
-| `scripts/` | repository checks and generators, run by lefthook and CI. Tests in `scripts/__tests__/` |
-| `docs/` | durable docs — architecture, plugin authoring, glossary, maintainer runbook. `prompts-documentation.md` is generated |
-| `aidd_docs/` | this memory bank, plus `tasks/`, `runs/`, `product/`, `specs/`, `recipes/`, `brainstorm/` |
-| `.claude-plugin/` | `marketplace.json`, the plugin manifest. Versions live in `.release-please-manifest.json` — see `deployment.md` |
-| `.claude/` | registers this checkout as a local marketplace, so a contributor runs the plugins they edit |
-| `.github/` | workflows, issue templates, rulesets |
+| `backend/` | FastAPI app and the analysis pipeline, one responsibility per file (see below) |
+| `frontend/` | React + Vite app. `npm run build` emits into `backend/static/` |
+| `tools/evaluate.py` | scores the pipeline against human timestamps; the accuracy gate |
+| `products/` | demo inputs: steps, manual PDF, ground truth. Videos gitignored |
+| `outputs/` | generated: jobs, clips, reports, eval runs. Gitignored, safe to delete |
+| `docs/` | NIM deployment runbook |
+| `Dockerfile`, `docker-compose.yml` | app image, and app + NIM stack |
+| `app.py`, `src/` | legacy Streamlit starter, superseded |
+| `aidd_docs/` | this memory bank |
+
+## backend/
+
+| File | In => out |
+| --- | --- |
+| `main.py` | HTTP routes, uploads, media with Range support, serves the built UI |
+| `jobs.py` | job lifecycle, persistence, SSE pub/sub |
+| `ingest.py` | URLs/uploads => files on disk, PDF => page PNGs. Owns the public-URL check |
+| `sop_author.py` | page PNGs => draft `sop.json` + `step_pages` |
+| `chunker.py` | video => overlapping clips; single frames |
+| `cosmos.py` | the only NIM client: media encoding, guided JSON, retries |
+| `detect.py` | clips x steps => score grid; frames => state transition times |
+| `align.py` | score grid => one span per step (monotone DP) |
+| `report.py` | spans + state times => statuses, coverage, compliance |
+| `pipeline.py` | runs chunker => detect => align => report; shared by jobs and the evaluator |
+| `config.py` | all environment settings |
 
 ## Entry points
 
-| Entry | Path |
+| Entry | Command |
 | --- | --- |
-| Binary | `cli/src/cli.ts` → `dist/cli.js`, bin name `aidd` |
-| Workflow | `plugins/<plugin>/skills/<NN>-<name>/SKILL.md` |
-| Memory refresh | `plugins/aidd-context/hooks/update_memory.js`, on `SessionStart` |
-| Run journal | `plugins/aidd-telemetry/hooks/journal.cjs`, on `SessionStart`, `Stop`, `PostToolUse` |
-
-## Packages
-
-| Package | Released |
-| --- | --- |
-| `cli` (`@ai-driven-dev/cli`) | npm, the only published package |
-| `kanban` (`@ai-driven-dev/kanban-source`) | private. Depends on npm packages only, never on `cli/` |
+| Web app | `uvicorn backend.main:app --port 8080` |
+| Frontend dev | `cd frontend && npm run dev` |
+| Evaluation | `python -m tools.evaluate bench_tjusig [--mode grid\|choice] [--no-state] [--reuse]` |

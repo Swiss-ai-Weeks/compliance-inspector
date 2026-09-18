@@ -1,0 +1,24 @@
+{
+  "task_name": "IKEA PRODUCT NAME Assembly",
+  "document_code": "AA-000000-0",
+  "total_manual_steps": 2,
+  "expected_steps": [
+    {
+      "step_id": 1,
+      "manual_reference": "Step 1 (p. 3)",
+      "name": "Short name of the action",
+      "description": "One or two sentences: which parts (with counts and part numbers) go where, and with which tool.",
+      "visual_cues": [
+        "What a camera sees while the step is done",
+        "What the assembly looks like once the step is finished"
+      ]
+    },
+    {
+      "step_id": 2,
+      "manual_reference": "Step 2 (p. 3)",
+      "name": "Short name of the action",
+      "description": "...",
+      "visual_cues": ["..."]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+# Two services: the web app, and the Cosmos NIM that watches the video.
+#
+#   export NGC_API_KEY=nvapi-...        # pulls the NIM image and weights
+#   export AUTHOR_API_KEY=nvapi-...     # optional: hosted model that reads manuals
+#   docker compose up -d
+#
+# No GPU? Drop the `nim` service and point NIM_BASE_URL at https://integrate.api.nvidia.com/v1
+# with NIM_API_KEY set. Full NIM procedure: docs/brev-nim-deployment.md
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      NIM_BASE_URL: ${NIM_BASE_URL:-http://nim:8000/v1}
+      NIM_MODEL: ${NIM_MODEL:-nvidia/cosmos3-nano-reasoner}
+      NIM_API_KEY: ${NIM_API_KEY:-not-needed}
+      AUTHOR_API_KEY: ${AUTHOR_API_KEY:-}
+      AUTHOR_MODEL: ${AUTHOR_MODEL:-meta/llama-3.2-90b-vision-instruct}
+    volumes:
+      - app-outputs:/app/outputs   # jobs, clips and reports survive restarts
+    depends_on:
+      - nim
+    restart: unless-stopped
+
+  nim:
+    image: nvcr.io/nim/nvidia/cosmos3-reasoner:1.7.0
+    environment:
+      NGC_API_KEY: ${NGC_API_KEY:?set NGC_API_KEY to pull the NIM}
+      NIM_MODEL_SIZE: nano
+    volumes:
+      - ${NIM_CACHE:-~/nim-cache/cosmos3-reasoner}:/opt/nim/.cache
+    ipc: host
+    shm_size: 32gb
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
+volumes:
+  app-outputs:

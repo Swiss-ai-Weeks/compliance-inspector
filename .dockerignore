@@ -1,0 +1,12 @@
+.git
+.venv
+**/__pycache__
+**/node_modules
+backend/static
+outputs
+videos
+aidd_docs
+.agent
+*.log
+.env
+*.env

@@ -1,0 +1,52 @@
+{
+  "video_id": "KPs0ik2FcsY",
+  "furniture": "applaro",
+  "manual_id": "AA-601524-4",
+  "duration_s": 155,
+  "source": "IKEA-Manuals-at-Work data/data.json, steps[*].video[*].iaw_metadata.annotation",
+  "numbering_note": "step_id uses PRINTED manual step numbers (dataset index + 1), matching sop.json.",
+  "segments": [
+    {
+      "step_id": 1,
+      "start": 20,
+      "end": 32
+    },
+    {
+      "step_id": 2,
+      "start": 38.7,
+      "end": 44.6
+    },
+    {
+      "step_id": 3,
+      "start": 47,
+      "end": 62.1
+    },
+    {
+      "step_id": 4,
+      "start": 68.5,
+      "end": 93.8
+    },
+    {
+      "step_id": 5,
+      "start": 106.4,
+      "end": 116.8
+    },
+    {
+      "step_id": 6,
+      "start": 122.3,
+      "end": 127.3
+    }
+  ],
+  "fine_grained_segments": [
+    {
+      "step_id": 2,
+      "start": 38.7,
+      "end": 44.6
+    },
+    {
+      "step_id": 3,
+      "start": 47.0,
+      "end": 62.1
+    }
+  ]
+}

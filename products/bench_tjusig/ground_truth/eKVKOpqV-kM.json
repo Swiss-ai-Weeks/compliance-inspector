@@ -1,0 +1,62 @@
+{
+  "video_id": "eKVKOpqV-kM",
+  "furniture": "tjusig",
+  "manual_id": "AA-354147-1",
+  "duration_s": 160,
+  "source": "IKEA-Manuals-at-Work data/data.json, steps[*].video[*].iaw_metadata.annotation",
+  "numbering_note": "step_id uses PRINTED manual step numbers (dataset index + 1), matching sop.json.",
+  "segments": [
+    {
+      "step_id": 1,
+      "start": 14,
+      "end": 29
+    },
+    {
+      "step_id": 4,
+      "start": 29,
+      "end": 37
+    },
+    {
+      "step_id": 2,
+      "start": 37,
+      "end": 58
+    },
+    {
+      "step_id": 3,
+      "start": 58,
+      "end": 69
+    },
+    {
+      "step_id": 5,
+      "start": 69,
+      "end": 79.5
+    },
+    {
+      "step_id": 8,
+      "start": 79.5,
+      "end": 98.5
+    },
+    {
+      "step_id": 9,
+      "start": 98.5,
+      "end": 107.5
+    },
+    {
+      "step_id": 10,
+      "start": 107.5,
+      "end": 118.5
+    },
+    {
+      "step_id": 13,
+      "start": 118.5,
+      "end": 153.6
+    }
+  ],
+  "fine_grained_segments": [
+    {
+      "step_id": 13,
+      "start": 128.9,
+      "end": 135.77
+    }
+  ]
+}

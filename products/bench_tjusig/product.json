@@ -1,0 +1,11 @@
+{
+  "name": "TJUSIG bench",
+  "category": "Bench",
+  "manual_id": "AA-354147-1",
+  "manual": "manual.pdf",
+  "step_pages": {"1": 4, "2": 4, "3": 5, "4": 6, "5": 6, "6": 7, "7": 7, "8": 8, "9": 8, "10": 9, "11": 9, "12": 10, "13": 11},
+  "notes": [
+    "step_pages checked by eye against manual.pdf (1-based PDF page numbers).",
+    "sop.json differs from the drawings: step 3 also inserts dowels and stands the side posts up; step 4 inserts 2 threaded metal tubes, not wooden posts; step 9 uses long bolts 100263 with barrel nuts 100505, step 10 the short hex bolts 100102, step 11 discards the cardboard (SOP steps 9-11 are shifted)."
+  ]
+}
