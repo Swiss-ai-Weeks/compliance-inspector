@@ -36,7 +36,7 @@ Install Python dependencies:
 ```
 pip install openai opencv-python streamlit
 ```
-### Models - informatio
+### Models - information
 
 **NVIDIA Cosmos 3 Reasoner 1.7.0**
 - Type: multimodal vision-language model
