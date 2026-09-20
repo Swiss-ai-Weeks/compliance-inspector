@@ -146,8 +146,6 @@ def greedy_align(scores, chunks, step_ids,
     Returns one StepSpan per step, in SOP order, just like the global alignment,
     ensuring 100% compatibility with report.py downstream logic.
     """
-    import numpy as np
-    from . import config
     
     min_step_score = min_step_score if min_step_score is not None else config.MIN_STEP_SCORE
 
