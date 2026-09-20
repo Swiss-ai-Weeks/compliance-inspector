@@ -44,7 +44,8 @@ def download(url: str, dest, *, allow_local: bool = False) -> Path:
     dest.parent.mkdir(parents=True, exist_ok=True)
 
     parsed = urlparse(url)
-    if allow_local and parsed.scheme in ("", "file"):
+    is_windows_path = len(parsed.scheme) == 1 and url.lower().startswith(f"{parsed.scheme}:")
+    if allow_local and (parsed.scheme in ("", "file") or is_windows_path):
         src = Path(parsed.path if parsed.scheme == "file" else url)
         if not src.exists():
             raise FileNotFoundError(f"No such file: {src}")
