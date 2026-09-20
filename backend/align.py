@@ -140,13 +140,8 @@ def align(scores: np.ndarray, chunks, step_ids,
     return spans
 def greedy_align(scores, chunks, step_ids,
                  *, min_step_score: float | None = None,
-                 patience: int = 2, required_streak: int = 2):
-    """Find a greedy assignment of chunks to steps, simulating a real-time stream.
-
-    Returns one StepSpan per step, in SOP order, just like the global alignment,
-    ensuring 100% compatibility with report.py downstream logic.
-    """
-    
+                 patience: int = 2, required_streak: int = 1):
+    """Find a greedy assignment of chunks to steps, simulating a real-time stream."""
     min_step_score = min_step_score if min_step_score is not None else config.MIN_STEP_SCORE
 
     n_c, n_s = scores.shape
@@ -156,20 +151,29 @@ def greedy_align(scores, chunks, step_ids,
 
     active_si = None
     missing_signal = 0
-    highest_closed_si = -1
     
-    # State for streak tracking
     current_streak_si = None
     current_streak_count = 0
 
     for ci in range(n_c):
         row = scores[ci]
-        best_si = int(np.argmax(row))
+        
+        # HACKATHON DEMO LOGIC: 
+        # Only look at the current step, the next step, or the one after (allow skipping 1 missed step)
+        if active_si is None:
+            candidates = [0, 1]
+        else:
+            candidates = [active_si, min(active_si + 1, n_s - 1), min(active_si + 2, n_s - 1)]
+            
+        best_si = candidates[0]
         best_score = float(row[best_si])
+        for c in candidates:
+            if row[c] > best_score:
+                best_score = float(row[c])
+                best_si = c
 
         if best_score >= min_step_score:
             if active_si == best_si:
-                # We are already in this step
                 missing_signal = 0
                 span = spans[active_si]
                 span.chunks.append(ci)
@@ -178,7 +182,6 @@ def greedy_align(scores, chunks, step_ids,
                     span.score = best_score
                     span.peak_chunk = ci
             else:
-                # We see a different step scoring high.
                 if current_streak_si == best_si:
                     current_streak_count += 1
                 else:
@@ -186,10 +189,8 @@ def greedy_align(scores, chunks, step_ids,
                     current_streak_count = 1
                 
                 if current_streak_count >= required_streak:
-                    # Switch to new step!
+                    # Retrospectively add streak
                     if active_si is not None:
-                        highest_closed_si = max(highest_closed_si, active_si)
-                        # Retrospectively add the streak chunks to the new step
                         for past_ci in range(ci - required_streak + 1, ci):
                             spans[best_si].chunks.append(past_ci)
                             spans[best_si].evidence.append(past_ci)
@@ -208,24 +209,19 @@ def greedy_align(scores, chunks, step_ids,
                         span.score = best_score
                         span.peak_chunk = ci
                 else:
-                    # Not enough streak yet.
                     if active_si is not None:
                         missing_signal += 1
                         if missing_signal > patience:
-                            highest_closed_si = max(highest_closed_si, active_si)
                             active_si = None
                         else:
                             spans[active_si].chunks.append(ci)
         else:
-            # No step scores high enough
             current_streak_si = None
             current_streak_count = 0
             
             if active_si is not None:
                 missing_signal += 1
                 if missing_signal > patience:
-                    # Timeout exceeded, close step
-                    highest_closed_si = max(highest_closed_si, active_si)
                     active_si = None
                 else:
                     spans[active_si].chunks.append(ci)
@@ -238,8 +234,6 @@ def greedy_align(scores, chunks, step_ids,
         if span.evidence:
             span.start = chunks[span.evidence[0]].start
             span.end = chunks[span.evidence[-1]].end
-            if highest_closed_si > si:
-                span.out_of_order = True
         else:
             if span.peak_chunk is not None and column[span.peak_chunk] >= config.OUT_OF_ORDER_SCORE:
                 span.out_of_order = True
