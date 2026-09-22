@@ -46,7 +46,10 @@ def analyze(video_path, sop: dict, out_dir, *, step_pages=None, pages_dir=None,
                                   progress=lambda d, t: say("scoring", d, t))
 
     say("aligning")
-    spans = align.align(scores, chunks, [s["step_id"] for s in steps])
+    if config.ALIGN_MODE == "greedy":
+        spans = align.greedy_align(scores, chunks, [s["step_id"] for s in steps])
+    else:
+        spans = align.align(scores, chunks, [s["step_id"] for s in steps])
 
     state_times = {}
     if use_state:

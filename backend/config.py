@@ -52,3 +52,4 @@ REPO_DIR = Path(__file__).resolve().parent.parent
 PRODUCTS_DIR = Path(os.environ.get("PRODUCTS_DIR", REPO_DIR / "products"))
 OUTPUTS_DIR = Path(os.environ.get("OUTPUTS_DIR", REPO_DIR / "outputs"))
 STATIC_DIR = Path(os.environ.get("STATIC_DIR", REPO_DIR / "backend" / "static"))
+ALIGN_MODE = os.environ.get("ALIGN_MODE", "global")

@@ -138,3 +138,113 @@ def align(scores: np.ndarray, chunks, step_ids,
             span.score = float(column[span.peak_chunk])
 
     return spans
+def greedy_align(scores, chunks, step_ids,
+                 *, min_step_score: float | None = None,
+                 patience: int = 2, required_streak: int = 1):
+    """Find a greedy assignment of chunks to steps, simulating a real-time stream."""
+    min_step_score = min_step_score if min_step_score is not None else config.MIN_STEP_SCORE
+
+    n_c, n_s = scores.shape
+    spans = [StepSpan(step_id=sid) for sid in step_ids]
+    if n_c == 0 or n_s == 0:
+        return spans
+
+    active_si = None
+    missing_signal = 0
+    
+    current_streak_si = None
+    current_streak_count = 0
+
+    for ci in range(n_c):
+        row = scores[ci]
+        
+        # HACKATHON DEMO LOGIC: 
+        # Only look at the current step, the next step, or the one after (allow skipping 1 missed step)
+        if active_si is None:
+            candidates = [0, 1]
+        else:
+            candidates = [active_si, min(active_si + 1, n_s - 1), min(active_si + 2, n_s - 1)]
+            
+        best_si = candidates[0]
+        best_score = float(row[best_si])
+        for c in candidates:
+            if row[c] > best_score:
+                best_score = float(row[c])
+                best_si = c
+
+        if best_score >= min_step_score:
+            if active_si == best_si:
+                missing_signal = 0
+                span = spans[active_si]
+                span.chunks.append(ci)
+                span.evidence.append(ci)
+                if best_score > span.score:
+                    span.score = best_score
+                    span.peak_chunk = ci
+            else:
+                if current_streak_si == best_si:
+                    current_streak_count += 1
+                else:
+                    current_streak_si = best_si
+                    current_streak_count = 1
+                
+                if current_streak_count >= required_streak:
+                    # Retrospectively add streak
+                    if active_si is not None:
+                        for past_ci in range(ci - required_streak + 1, ci):
+                            spans[best_si].chunks.append(past_ci)
+                            spans[best_si].evidence.append(past_ci)
+                            if scores[past_ci, best_si] > spans[best_si].score:
+                                spans[best_si].score = float(scores[past_ci, best_si])
+                                spans[best_si].peak_chunk = past_ci
+                    
+                    active_si = best_si
+                    missing_signal = 0
+                    current_streak_count = 0
+                    
+                    span = spans[active_si]
+                    span.chunks.append(ci)
+                    span.evidence.append(ci)
+                    if best_score > span.score:
+                        span.score = best_score
+                        span.peak_chunk = ci
+                else:
+                    if active_si is not None:
+                        missing_signal += 1
+                        if missing_signal > patience:
+                            active_si = None
+                        else:
+                            spans[active_si].chunks.append(ci)
+        else:
+            current_streak_si = None
+            current_streak_count = 0
+            
+            if active_si is not None:
+                missing_signal += 1
+                if missing_signal > patience:
+                    active_si = None
+                else:
+                    spans[active_si].chunks.append(ci)
+
+    # Post-process spans
+    for si, span in enumerate(spans):
+        column = scores[:, si]
+        span.peak_chunk = int(np.argmax(column)) if n_c else None
+        
+        if span.evidence:
+            span.start = chunks[span.evidence[0]].start
+            span.end = chunks[span.evidence[-1]].end
+        else:
+            if span.peak_chunk is not None and column[span.peak_chunk] >= config.OUT_OF_ORDER_SCORE:
+                span.out_of_order = True
+                span.evidence = [span.peak_chunk]
+                span.start = chunks[span.peak_chunk].start
+                span.end = chunks[span.peak_chunk].end
+                span.score = float(column[span.peak_chunk])
+            elif span.peak_chunk is not None and column[span.peak_chunk] >= min_step_score:
+                span.weak = True
+                span.start = chunks[span.peak_chunk].start
+                span.end = chunks[span.peak_chunk].end
+                span.score = float(column[span.peak_chunk])
+
+    return spans
