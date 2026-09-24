@@ -1,0 +1,274 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] 
+            /Contents 4 0 R 
+            /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 6499 >>
+stream
+0.400 0.400 0.400 rg 0.400 0.400 0.400 RG
+50.0 755.0 512.0 1.0 re f
+BT /F2 8 Tf 0.35 0.35 0.35 rg 50.0 762.0 Td (NVIDIA NemoClaw + Cosmos + Nemotron | Architecture Blueprint) Tj ET
+BT /F1 8 Tf 0.50 0.50 0.50 rg 50.0 30.0 Td (Visual Compliance Inspector - Ambient Agent Specification) Tj ET
+BT /F1 8 Tf 0.50 0.50 0.50 rg 520.0 30.0 Td (Page 1) Tj ET
+0.800 0.800 0.800 rg 0.800 0.800 0.800 RG
+50.0 42.0 512.0 0.5 re f
+0.080 0.380 0.220 rg 0.080 0.380 0.220 RG
+50.0 726.0 512.0 34.0 re f
+BT /F2 14 Tf 1.00 1.00 1.00 rg 60.0 737.0 Td (Visual Compliance Inspector: Architecture Blueprint) Tj ET
+BT /F3 9.5 Tf 0.30 0.30 0.30 rg 50.0 690.0 Td (NVIDIA NemoClaw Security Envelope, Cosmos 3 Reasoner and Multi-Channel Chat Orchestration) Tj ET
+0.100 0.250 0.400 rg 0.100 0.250 0.400 RG
+50.0 660.0 4.0 15.0 re f
+BT /F2 12.5 Tf 0.10 0.25 0.40 rg 58.0 662.0 Td (1. Executive Overview) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 642.0 Td (This architectural plan details the transformation of the Visual Compliance Inspector into a) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 629.0 Td (secure ambient AI agent. By encapsulating autonomous agent capabilities inside NVIDIA NemoClaw) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 616.0 Td (and NVIDIA OpenShell, users can interact with the system via natural language and send) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 603.0 Td (video/document attachments across enterprise chat channels \(WhatsApp, Telegram, Slack\) while) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 590.0 Td (enforcing strict container sandboxing, data privacy, and deterministic audit verification.) Tj ET
+0.100 0.250 0.400 rg 0.100 0.250 0.400 RG
+50.0 563.0 4.0 15.0 re f
+BT /F2 12.5 Tf 0.10 0.25 0.40 rg 58.0 565.0 Td (2. Component Stack and Roles) Tj ET
+0.150 0.250 0.350 rg 0.150 0.250 0.350 RG
+50.0 529.0 512.0 16.0 re f
+BT /F2 8.5 Tf 1.00 1.00 1.00 rg 55.0 533.0 Td (Component) Tj ET
+BT /F2 8.5 Tf 1.00 1.00 1.00 rg 165.0 533.0 Td (Technology) Tj ET
+BT /F2 8.5 Tf 1.00 1.00 1.00 rg 305.0 533.0 Td (Primary Role and Scope) Tj ET
+0.960 0.970 0.980 rg 0.960 0.970 0.980 RG
+50.0 512.0 512.0 15.0 re f
+0.850 0.850 0.850 rg 0.850 0.850 0.850 RG
+0.5 w 50.0 512.0 512.0 15.0 re S
+BT /F1 8 Tf 0.10 0.10 0.10 rg 55.0 516.0 Td (Security Envelope) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 165.0 516.0 Td (NVIDIA NemoClaw \(OpenShell\)) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 305.0 516.0 Td (Kernel sandboxing, policy router, egress firewall, process isolation) Tj ET
+1.000 1.000 1.000 rg 1.000 1.000 1.000 RG
+50.0 496.0 512.0 15.0 re f
+0.850 0.850 0.850 rg 0.850 0.850 0.850 RG
+0.5 w 50.0 496.0 512.0 15.0 re S
+BT /F1 8 Tf 0.10 0.10 0.10 rg 55.0 500.0 Td (Agent Gateway) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 165.0 500.0 Td (OpenClaw Framework) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 305.0 500.0 Td (Multi-channel chat bridging \(WhatsApp, Slack, Telegram\), tool dispatch) Tj ET
+0.960 0.970 0.980 rg 0.960 0.970 0.980 RG
+50.0 480.0 512.0 15.0 re f
+0.850 0.850 0.850 rg 0.850 0.850 0.850 RG
+0.5 w 50.0 480.0 512.0 15.0 re S
+BT /F1 8 Tf 0.10 0.10 0.10 rg 55.0 484.0 Td (Agent Intelligence) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 165.0 484.0 Td (Nemotron-3.5 Lightning) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 305.0 484.0 Td (Intent extraction, tool calling, natural language audit synthesis) Tj ET
+1.000 1.000 1.000 rg 1.000 1.000 1.000 RG
+50.0 464.0 512.0 15.0 re f
+0.850 0.850 0.850 rg 0.850 0.850 0.850 RG
+0.5 w 50.0 464.0 512.0 15.0 re S
+BT /F1 8 Tf 0.10 0.10 0.10 rg 55.0 468.0 Td (Vision Reasoner) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 165.0 468.0 Td (Cosmos 3 Reasoner NIM) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 305.0 468.0 Td (Temporal video ingestion \(1 fps\), spatial reasoning, timestamp detection) Tj ET
+0.960 0.970 0.980 rg 0.960 0.970 0.980 RG
+50.0 448.0 512.0 15.0 re f
+0.850 0.850 0.850 rg 0.850 0.850 0.850 RG
+0.5 w 50.0 448.0 512.0 15.0 re S
+BT /F1 8 Tf 0.10 0.10 0.10 rg 55.0 452.0 Td (Audit Engine) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 165.0 452.0 Td (Deterministic Validator) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 305.0 452.0 Td (Guaranteed sequence validation \(start_sec < end_sec\), zero hallucinations) Tj ET
+1.000 1.000 1.000 rg 1.000 1.000 1.000 RG
+50.0 432.0 512.0 15.0 re f
+0.850 0.850 0.850 rg 0.850 0.850 0.850 RG
+0.5 w 50.0 432.0 512.0 15.0 re S
+BT /F1 8 Tf 0.10 0.10 0.10 rg 55.0 436.0 Td (Presentation UI) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 165.0 436.0 Td (Streamlit and Chat Responses) Tj ET
+BT /F1 8 Tf 0.10 0.10 0.10 rg 305.0 436.0 Td (Interactive visual dashboard and direct mobile chat summaries) Tj ET
+0.100 0.250 0.400 rg 0.100 0.250 0.400 RG
+50.0 413.0 4.0 15.0 re f
+BT /F2 12.5 Tf 0.10 0.25 0.40 rg 58.0 415.0 Td (3. Can NemoClaw and OpenClaw Handle WhatsApp / Chat Interfaces?) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 395.0 Td (YES. In fact, chat connectivity is one of the core strengths of the OpenClaw platform.) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 382.0 Td (OpenClaw functions as a self-hosted messaging gateway that connects everyday apps directly to) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 369.0 Td (local AI agents:) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 352.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 352.0 Td (Native Messaging Bridge: OpenClaw natively supports WhatsApp \(via WhatsApp Business Cloud) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 339.0 Td (API or Twilio\), Telegram \(via BotFather token\), Slack, Microsoft Teams, and Discord.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 323.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 323.0 Td (Document and Media Ingestion: When a user uploads an MP4 video or JSON SOP in WhatsApp,) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 310.0 Td (OpenClaw automatically downloads the attachment into a sandboxed staging directory.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 294.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 294.0 Td (Autonomous Dispatch: Nemotron-3.5 receives the user message \(e.g. 'Audit this video against) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 281.0 Td (SOP v2'\) along with the file path, invokes the compliance tool, and executes the pipeline.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 265.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 265.0 Td (Bidirectional Response: Once analysis finishes, OpenClaw sends a formatted compliance) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 252.0 Td (verdict \(PASS / FAIL, timestamp evidence\) and generated PDF reports directly back to the) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 239.0 Td (user's WhatsApp chat.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] 
+            /Contents 6 0 R 
+            /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 5295 >>
+stream
+0.400 0.400 0.400 rg 0.400 0.400 0.400 RG
+50.0 755.0 512.0 1.0 re f
+BT /F2 8 Tf 0.35 0.35 0.35 rg 50.0 762.0 Td (NVIDIA NemoClaw + Cosmos + Nemotron | Architecture Blueprint) Tj ET
+BT /F1 8 Tf 0.50 0.50 0.50 rg 50.0 30.0 Td (Visual Compliance Inspector - Ambient Agent Specification) Tj ET
+BT /F1 8 Tf 0.50 0.50 0.50 rg 520.0 30.0 Td (Page 2) Tj ET
+0.800 0.800 0.800 rg 0.800 0.800 0.800 RG
+50.0 42.0 512.0 0.5 re f
+0.100 0.250 0.400 rg 0.100 0.250 0.400 RG
+50.0 720.0 4.0 15.0 re f
+BT /F2 12.5 Tf 0.10 0.25 0.40 rg 58.0 722.0 Td (4. End-to-End System Architecture) Tj ET
+0.940 0.960 0.980 rg 0.940 0.960 0.980 RG
+50.0 468.0 512.0 234.0 re f
+0.150 0.350 0.550 rg 0.150 0.350 0.550 RG
+1.0 w 50.0 468.0 512.0 234.0 re S
+50.0 684.0 512.0 18.0 re f
+BT /F2 9 Tf 1.00 1.00 1.00 rg 60.0 689.0 Td (Enterprise Dataflow and Isolation Boundary) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 670.0 Td ([User via WhatsApp / Telegram / Slack]  --> \(Media Attachment: video.mp4, prompt: 'Check compliance'\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 657.0 Td (        |) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 644.0 Td (        v) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 631.0 Td ([NVIDIA NemoClaw Security Envelope \(OpenShell Sandbox\)]) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 618.0 Td (   |-- OpenClaw Channel Gateway \(Webhook Listener & Media Staging\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 605.0 Td (   |-- Nemotron-3.5 Lightning \(Intent Reasoning & Tool Orchestration\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 592.0 Td (   +-- Local Execution Tools \(extract_frames -> Cosmos NIM Client -> Deterministic Audit\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 579.0 Td (        |) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 566.0 Td (        |--> Calls Local Docker: NVIDIA Cosmos 3 Reasoner NIM \(http://localhost:8000/v1\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 553.0 Td (        +--> Validates Timestamps via Deterministic Engine \(src/audit_engine.py\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 540.0 Td (        |) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 527.0 Td (   +-- Formats Verdict \(PASS/FAIL + Out-of-Order alerts + Evidence Log\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 514.0 Td (        |) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 501.0 Td (        v) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 488.0 Td ([Response to User Chat]: Markdown summary + Downloadable PDF Audit Report) Tj ET
+0.100 0.250 0.400 rg 0.100 0.250 0.400 RG
+50.0 448.0 4.0 15.0 re f
+BT /F2 12.5 Tf 0.10 0.25 0.40 rg 58.0 450.0 Td (5. Ambient Agent: Operational Patterns) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 430.0 Td (To avoid high GPU idle power and resource contention, the ambient inspector operates on two) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 417.0 Td (selectable modes:) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 400.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 400.0 Td (1. On-Demand Conversational Mode: The agent runs in a passive listening state. It only) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 387.0 Td (invokes Nemotron and the GPU-intensive Cosmos NIM when a message or video is explicitly sent) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 374.0 Td (to the chat endpoint.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 358.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 358.0 Td (2. Event-Driven Directory Watcher: The agent monitors an inbox folder \(data/inbox/\).) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 345.0 Td (Whenever a technician or surveillance feed saves a new video, the agent automatically) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 332.0 Td (detects it, matches it to the appropriate SOP, runs the inspection, and broadcasts alerts.) Tj ET
+0.100 0.250 0.400 rg 0.100 0.250 0.400 RG
+50.0 306.0 4.0 15.0 re f
+BT /F2 12.5 Tf 0.10 0.25 0.40 rg 58.0 308.0 Td (6. Security Envelope: OpenShell Guardrails) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 288.0 Td (Industrial surveillance and assembly footage contain proprietary designs and worker privacy) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 275.0 Td (data. NemoClaw's OpenShell enforces strict kernel-level containment:) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 258.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 258.0 Td (Filesystem Jail: Agent process can ONLY read from ./data/ and write to ./output/. Access to) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 245.0 Td (host root, system keys, or external drives is strictly denied.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 229.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 229.0 Td (Network Whitelisting: Inbound traffic is restricted to the chat gateway port \(e.g. 8443 for) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 216.0 Td (webhooks\). Outbound traffic is restricted to the local Cosmos NIM container \(localhost:8000\)) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 203.0 Td (and NVIDIA Nemotron API.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 187.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 187.0 Td (Prompt Injection Defense: User messages received from chat are sanitized before being) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 174.0 Td (passed to tool call arguments, preventing prompt injections from executing unauthorized) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 161.0 Td (shell commands.) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] 
+            /Contents 8 0 R 
+            /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >> >>
+endobj
+8 0 obj
+<< /Length 5293 >>
+stream
+0.400 0.400 0.400 rg 0.400 0.400 0.400 RG
+50.0 755.0 512.0 1.0 re f
+BT /F2 8 Tf 0.35 0.35 0.35 rg 50.0 762.0 Td (NVIDIA NemoClaw + Cosmos + Nemotron | Architecture Blueprint) Tj ET
+BT /F1 8 Tf 0.50 0.50 0.50 rg 50.0 30.0 Td (Visual Compliance Inspector - Ambient Agent Specification) Tj ET
+BT /F1 8 Tf 0.50 0.50 0.50 rg 520.0 30.0 Td (Page 3) Tj ET
+0.800 0.800 0.800 rg 0.800 0.800 0.800 RG
+50.0 42.0 512.0 0.5 re f
+0.100 0.250 0.400 rg 0.100 0.250 0.400 RG
+50.0 720.0 4.0 15.0 re f
+BT /F2 12.5 Tf 0.10 0.25 0.40 rg 58.0 722.0 Td (7. Implementation Blueprint: Exposing Tools to OpenClaw) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 702.0 Td (Your existing codebase \(src/ingestion.py, src/cosmos_client.py, src/audit_engine.py\) is) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 689.0 Td (registered as an OpenClaw agent tool inside NemoClaw:) Tj ET
+0.960 0.960 0.960 rg 0.960 0.960 0.960 RG
+50.0 452.0 512.0 220.0 re f
+0.300 0.300 0.300 rg 0.300 0.300 0.300 RG
+1.0 w 50.0 452.0 512.0 220.0 re S
+50.0 654.0 512.0 18.0 re f
+BT /F2 9 Tf 1.00 1.00 1.00 rg 60.0 659.0 Td (Tool Definition: tools/compliance_tool.py) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 640.0 Td (from src.ingestion import extract_frames) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 627.0 Td (from src.cosmos_client import analyze_actions) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 614.0 Td (from src.audit_engine import generate_compliance_report) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 601.0 Td () Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 588.0 Td (def inspect_video_compliance\(video_path: str, sop_path: str, output_name: str\) -> dict:) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 575.0 Td (    '''Tool invoked by Nemotron when user requests a compliance audit.''') Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 562.0 Td (    frames = extract_frames\(video_path, target_fps=1.0\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 549.0 Td (    with open\(sop_path, 'r'\) as f: sop_data = json.load\(f\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 536.0 Td (    observations = analyze_actions\(frames, sop_data\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 523.0 Td (    obs_file = f'output/{output_name}_obs.json') Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 510.0 Td (    report_file = f'output/{output_name}_report.json') Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 497.0 Td (    with open\(obs_file, 'w'\) as f: json.dump\(observations, f\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 484.0 Td (    generate_compliance_report\(sop_path, obs_file, report_file\)) Tj ET
+BT /F1 8.5 Tf 0.10 0.10 0.10 rg 60.0 471.0 Td (    with open\(report_file, 'r'\) as f: return json.load\(f\)) Tj ET
+0.100 0.250 0.400 rg 0.100 0.250 0.400 RG
+50.0 432.0 4.0 15.0 re f
+BT /F2 12.5 Tf 0.10 0.25 0.40 rg 58.0 434.0 Td (8. Connecting WhatsApp and Chat Platforms) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 414.0 Td (OpenClaw provides plug-and-play channel connectors. Here are the three primary connection) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 50.0 401.0 Td (methods:) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 384.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 384.0 Td (A. WhatsApp Business Cloud API \(Enterprise\): Uses an official Meta Developer Account, Phone) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 371.0 Td (Number ID, and Permanent System Token. OpenClaw registers a webhook endpoint \(HTTPS\) to) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 358.0 Td (receive message payloads and media.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 342.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 342.0 Td (B. Twilio WhatsApp Gateway: Quickest setup with existing enterprise SMS/messaging accounts.) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 329.0 Td (OpenClaw binds via TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 313.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 313.0 Td (C. Telegram Bot \(Fastest for Prototyping\): Requires only a single bot token from) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 300.0 Td (@BotFather. Supports instant video and file uploads up to 2GB with zero webhook SSL) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 287.0 Td (configuration.) Tj ET
+0.100 0.250 0.400 rg 0.100 0.250 0.400 RG
+50.0 261.0 4.0 15.0 re f
+BT /F2 12.5 Tf 0.10 0.25 0.40 rg 58.0 263.0 Td (9. Hardware and Deployment Considerations) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 243.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 243.0 Td (Local Cosmos Container: Keep NVIDIA Cosmos 3 Reasoner NIM running in its local Docker) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 230.0 Td (container on your GPU \(e.g. H100, A100, or RTX workstation\) mapped to port 8000.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 214.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 214.0 Td (Nemotron 3.5 Cloud API: Using Nemotron via NVIDIA hosted cloud \(integrate.api.nvidia.com\)) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 201.0 Td (ensures zero extra VRAM contention on your local machine.) Tj ET
+BT /F2 10 Tf 0.10 0.50 0.25 rg 50.0 185.0 Td (>) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 185.0 Td (OpenShell Network Bridge: Ensure your Docker daemon allows bridge network communication) Tj ET
+BT /F1 9.5 Tf 0.15 0.15 0.15 rg 62.0 172.0 Td (between the OpenShell container and the Cosmos NIM container.) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+10 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+11 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000133 00000 n 
+0000000307 00000 n 
+0000006858 00000 n 
+0000007032 00000 n 
+0000012379 00000 n 
+0000012553 00000 n 
+0000017898 00000 n 
+0000017968 00000 n 
+0000018044 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+18123
+%%EOF

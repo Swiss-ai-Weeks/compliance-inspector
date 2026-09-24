@@ -71,6 +71,46 @@ pip install openai opencv-python streamlit
 > Used Nemotron-3.5 Lightning from NVIDIA's cloud infrastructure in this setup,
 > so no dedicated GPU allocation was directly required for the LLM. Only for Cosmos setup was required the local GPU.
 
+# Project architecture and calibration updates
+
+This document outlines the recent architectural evolutions, changes, and prompt calibration adjustments made to the visual compliance inspection tool.
+
+## 1. NemoClaw and OpenClaw integration
+The architecture has been upgraded to utilize **NemoClaw** and **OpenClaw** for orchestration and reasoning. 
+* **Integration**: These frameworks allow for dynamic, agentic reasoning (e.g., the LangChain interactive query agent) and secure communication with NVIDIA Cosmos and Nemotron models.
+* **Security enhancements**: NemoClaw enforces network policies, strict sandbox boundaries, and secure API credential handling. This isolated, governed environment mitigates risks of unauthorized data exfiltration and arbitrary code execution.
+
+## 2. Dynamic multi-video pipeline
+**The system has evolved from a hardcoded binary assessment (compliant vs. non-compliant) to a robust, dynamic pipeline that processes multiple videos and separately handles their associated SOPs.**
+* **End-to-end analysis**: The tool now accepts any properly named video (e.g., `video_Bench_tjusig.mp4`), automatically matches it to its corresponding SOP (`sop_tjusig.json`), and evaluates the footage from start to finish. This replaces the previous 8-frame sampling implementation, which was primarily an effective way to reduce the gap between app completeness and prototyping for mini-demos.
+* **Objective determination**: Compliance is no longer assumed by the filename, which was previously a declarative statement (e.g., `full-compliant-video` is `OK: compliant`, `non-compliant-video` is `NON-compliant`). Now, the model acts as an objective inspector, determining pass or fail states purely based on the visual evidence extracted across the entire video.
+
+## 3. Mechanisms to reduce hallucinations
+For training purposes, various checks were run on different sample videos and SOP configurations. Comparing the full assembly video of one item with a trimmed video of the same item showed that Cosmos would incorrectly evaluate the trimmed video (with clearly missing steps) as `Compliant`.
+
+In a default evaluation mode with no prior adjustments, it verified the existence of assembly steps while disregarding missing stages. Given the lack of memory between calls (each API call sent a single message array with one user message, lacking conversation history, session IDs, or threads), the model hallucinated.
+
+To prevent the Cosmos vision model from producing false-positive results or assuming compliance based on existing data while ignoring missing building phases, three strict programmatic safeguards were introduced:
+
+* **Per-chunk prompting**: Instead of providing the model with the entire video context at once, frames are batched into small chunks (e.g., 10 frames). The prompt dynamically injects the exact time window (e.g., 20.0s to 30.0s) and strictly restricts the model to report *only* what it observes in those specific frames.
+* **Temporal filter**: A hard safety net in the code checks the timestamps of all reported actions. If the model claims an action occurred at a timestamp that exceeds the actual video duration, it is mechanically overridden to `detected: false`.
+* **Completeness check**: A post-processing audit engine cross-references the model's reported observations against the expected SOP. If a step is never explicitly reported by the model, it is automatically marked as `MISSED`, resulting in an overall `FAIL`.
+
+## 4. Calibration comparison and rule adjustments
+Initial iterations of the prompt (based on the three code changes listed above) were calibrated too tightly, resulting in frequent "false fails" where perfectly compliant videos were flagged as non-compliant due to overly rigid instructions.
+
+### Minimal calibration comparison
+* **Strict calibration (previous)**: Resulted in a high false-fail rate. The model was punished for inferring completion, leading it to flag or dismiss certain steps even when visual evidence of the completed state was present.
+* **Standardized calibration (current)**: Results in a natural, practical assessment. The model accurately passes compliant videos while still failing non-compliant videos via the completeness check and temporal filters.
+
+### Deactivation of Rule 2 ("assembled state does not count"")
+To achieve this standardized calibration, **Rule 2 ("Seeing the product in a certain assembled state does NOT count") was turned off.** 
+* **Why it was removed**: Imposing this rule made the pipeline overly strict and rigid. In real-world video footage, an operator might obscure the camera during the exact moment of an action, but the subsequent frames clearly show the completed result (e.g., a bolt fully tightened). 
+* By disabling this constraint, the pass filter behaves more naturally, allowing the model to accept clear visual evidence of a completed assembly step without triggering unjustified failures.
+* **SOP cleanup**: We reduced the large number of visual cue indicators previously detailing each step of the process in the SOP files. These extra indicators had added reasoning friction and increased the number of tokens used. For a comparison of the old SOP model versus the current one, see below:
+* data/sops/sop_tjusig.json
+* assets/old_sop_tjusig.json
+
 ## Setup
 
 Export and set globally on the environment the variables to later use and make them survive reboots/restarts:
@@ -93,6 +133,10 @@ python3 quick_demo.py
 To absolutely enforce execution in case of issues: make sure to cd in the directory where the source code is at (e.g. `cd compliance-inspector`) and re-inforce the env variables:
 ```
 NIM_MODEL_NAME="nvidia/cosmos3-nano-reasoner" OPENAI_API_KEY=“nvapi-loooooooooongkey" NVIDIA_API_KEY="nvapi-nvapi-loooooooooongkey" python3 quick_demo.py 
+```
+To run the full demo
+```
+python3 quick_interactive_demo.py
 ```
 
 **Full pipeline** (1fps, timestamped audit report). Same as the demo, it can require the API key and model initialization at forced execution if it can not read these from the environment:
@@ -118,7 +162,7 @@ compliance-inspector/
 │   ├── cosmos_client.py # Cosmos NIM API client
 │   └── audit_engine.py  # deterministic SOP validator
 ├── output/              # generated reports (not committed to repo)
-├── pipeline.py          # full end-to-end run
+├── interactive_demo.py  # full end-to-end run
 ├── quick_demo.py        # lightweight 8-frame demo
 └── app.py               # Streamlit dashboard
 ```

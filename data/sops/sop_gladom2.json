@@ -1,0 +1,26 @@
+{
+  "task_name": "IKEA GLADOM Tray Table Assembly",
+  "total_manual_steps": 4,
+  "expected_steps": [
+    {
+      "step_id": 1,
+      "name": "Connect bottom cross-frame",
+      "description": "Overlap the two tubular cross-frames at the bottom intersection and secure them with a screw and Allen key."
+    },
+    {
+      "step_id": 2,
+      "name": "Connect top cross-frame",
+      "description": "Flip the frame over and secure the center intersection of the top crossbars with a screw and Allen key."
+    },
+    {
+      "step_id": 3,
+      "name": "Attach circular tray support ring",
+      "description": "Place the circular ring on top of the frame with recessed holes facing upward and secure with screws."
+    },
+    {
+      "step_id": 4,
+      "name": "Place tray onto frame",
+      "description": "Lower the solid circular tray onto the assembled support ring to complete the table."
+    }
+  ]
+}

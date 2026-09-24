@@ -1,0 +1,29 @@
+version: 1
+
+# NOTE: This file is read by NemoClaw's project scanner for metadata and
+# filesystem constraints only. It does NOT control OpenShell network policy.
+#
+#  To allow or deny network access, use the CLI on the NemoClaw sandbox host:
+#    nemoclaw <project-name> policy add local-inference
+#    nemoclaw <project-name> policy add personal-open-internet
+
+filesystem_policy:
+  include_workdir: true
+  read_only:
+    - /workspace/src
+    - /workspace/app.py
+    - /workspace/quick_demo.py
+    - /workspace/interactive_demo.py
+    - /usr
+    - /lib
+  read_write:
+    - /workspace/data
+    - /workspace/output
+    - /tmp
+
+landlock:
+  compatibility: best_effort
+
+process:
+  run_as_user: sandbox
+  run_as_group: sandbox

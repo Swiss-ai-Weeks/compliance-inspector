@@ -1,0 +1,36 @@
+{
+  "task_name": "IKEA ÄPPLARÖ Bench Assembly",
+  "total_manual_steps": 6,
+  "expected_steps": [
+    {
+      "step_id": 1,
+      "name": "Insert dowels into side frames",
+      "description": "Insert wooden dowels into the pre-drilled holes of the two rectangular side frames."
+    },
+    {
+      "step_id": 2,
+      "name": "Attach long slatted panels",
+      "description": "Align and attach the long slatted seat and backrest panels to the dowels on the side frames."
+    },
+    {
+      "step_id": 3,
+      "name": "Rotate the assembly",
+      "description": "Rotate the partially assembled bench 90 degrees so that it rests upright on its legs."
+    },
+    {
+      "step_id": 4,
+      "name": "Secure outer frame with barrel nuts and long bolts",
+      "description": "Insert barrel nuts into the inner slots of the crossbars and fasten with long bolts through the outer legs using the Allen key."
+    },
+    {
+      "step_id": 5,
+      "name": "Secure middle support with barrel nuts and pointy bolts",
+      "description": "Insert barrel nuts into the middle support bar and secure with pointy bolts using the Allen key."
+    },
+    {
+      "step_id": 6,
+      "name": "Fasten middle seat slats",
+      "description": "Fasten the middle seat slats to the center support frame using screws and a cross-head screwdriver."
+    }
+  ]
+}

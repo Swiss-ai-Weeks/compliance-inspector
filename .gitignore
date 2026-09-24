@@ -94,3 +94,6 @@ $RECYCLE.BIN/
 # Emacs
 \#*\#
 .\#*
+
+# Browser-based temporary files and cache
+.chrome_tmp/
