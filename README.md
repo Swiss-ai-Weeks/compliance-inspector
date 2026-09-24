@@ -103,12 +103,14 @@ Initial iterations of the prompt (based on the three code changes listed above) 
 * **Strict calibration (previous)**: Resulted in a high false-fail rate. The model was punished for inferring completion, leading it to flag or dismiss certain steps even when visual evidence of the completed state was present.
 * **Standardized calibration (current)**: Results in a natural, practical assessment. The model accurately passes compliant videos while still failing non-compliant videos via the completeness check and temporal filters.
 
-### Deactivation of Rule 2 ("assembled state does not count"")
+### Deactivation of Rule 2 ("assembled state does not count")
 To achieve this standardized calibration, **Rule 2 ("Seeing the product in a certain assembled state does NOT count") was turned off.** 
 * **Why it was removed**: Imposing this rule made the pipeline overly strict and rigid. In real-world video footage, an operator might obscure the camera during the exact moment of an action, but the subsequent frames clearly show the completed result (e.g., a bolt fully tightened). 
 * By disabling this constraint, the pass filter behaves more naturally, allowing the model to accept clear visual evidence of a completed assembly step without triggering unjustified failures.
-* **SOP cleanup**: We reduced the large number of visual cue indicators previously detailing each step of the process in the SOP files. These extra indicators had added reasoning friction and increased the number of tokens used. For a comparison of the old SOP model versus the current one, see: [TJUSIG SOP](data/sops/sop_tjusig.json) vs. [the old TJUSIG SOP](data/sops/old_sop_tjusig.json).
+* **SOP cleanup**: We reduced the large number of visual cue indicators previously detailing each step of the process in the SOP files. These extra indicators had added reasoning friction and increased the number of tokens used. For a comparison of the old SOP model versus the current one, see: [TJUSIG sop](data/sops/sop_tjusig.json) vs. [the old TJUSIG sop](data/sops/old_sop_tjusig.json).
 
+## Dataset choice
+The data (videos, assembly manuals, and other artifacts) was sourced from this Stanford page: https://purl.stanford.edu/sg200ps4374. Here, there is a large set of IKEA assembly models and instructions.
 
 ## Setup
 
@@ -135,7 +137,7 @@ NIM_MODEL_NAME="nvidia/cosmos3-nano-reasoner" OPENAI_API_KEY=“nvapi-looooooooo
 ```
 To run the full demo
 ```
-python3 quick_interactive_demo.py
+python3 interactive_demo.py
 ```
 
 **Dashboard** (for an interface usability):
@@ -176,7 +178,7 @@ Here are a few examples (running the tool):
 
 ![Question 1:](assets/find_answer_LLM_or_Lang_2.png)
 
-NemoClaw: configuration
+* NemoClaw: configuration
 
 ![Install and config](assets/assets/NemoClaw_install.png)
 
