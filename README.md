@@ -107,9 +107,8 @@ Initial iterations of the prompt (based on the three code changes listed above) 
 To achieve this standardized calibration, **Rule 2 ("Seeing the product in a certain assembled state does NOT count") was turned off.** 
 * **Why it was removed**: Imposing this rule made the pipeline overly strict and rigid. In real-world video footage, an operator might obscure the camera during the exact moment of an action, but the subsequent frames clearly show the completed result (e.g., a bolt fully tightened). 
 * By disabling this constraint, the pass filter behaves more naturally, allowing the model to accept clear visual evidence of a completed assembly step without triggering unjustified failures.
-* **SOP cleanup**: We reduced the large number of visual cue indicators previously detailing each step of the process in the SOP files. These extra indicators had added reasoning friction and increased the number of tokens used. For a comparison of the old SOP model versus the current one, see below:
-* data/sops/sop_tjusig.json
-* assets/old_sop_tjusig.json
+* **SOP cleanup**: We reduced the large number of visual cue indicators previously detailing each step of the process in the SOP files. These extra indicators had added reasoning friction and increased the number of tokens used. For a comparison of the old SOP model versus the current one, see: [TJUSIG SOP](data/sops/sop_tjusig.json) vs. [the Old TJUSIG SOP](assets/old_sop_tjusig.json).
+
 
 ## Setup
 
@@ -139,12 +138,7 @@ To run the full demo
 python3 quick_interactive_demo.py
 ```
 
-**Full pipeline** (1fps, timestamped audit report). Same as the demo, it can require the API key and model initialization at forced execution if it can not read these from the environment:
-```
-python3 pipeline.py
-```
-
-**Dashboard** (view the report in a browser):
+**Dashboard** (for an interface usability):
 ```
 streamlit run app.py
 ```
@@ -164,18 +158,20 @@ compliance-inspector/
 ├── output/              # generated reports (not committed to repo)
 ├── interactive_demo.py  # full end-to-end run
 ├── quick_demo.py        # lightweight 8-frame demo
-└── app.py               # Streamlit dashboard
+└── app.py               # Main app file with UI
 ```
 ## Execution and mini-demo 
 
 Here are 2 examples of outputs when running the demo from the CLI. Attention: in my example: `test_reasoning.py` corresponds to `quick_demo.py` in this project - it is the same code but the file on the testing environment had a different name.
 
-Here are examples of 2 different outputs:
+Here are a few examples (running the tool):
 
-* Validation / Compliant
+* Validation and checks
 
-![Validation / Compliant](assets/example_compliant_output.png)
+![Compliance check and analysis (with missing steps)](assets/compliance_analysis.png)
 
-* Non-compliant:
+* Conversing with the agent (in plain language):
 
-![Non-compliant](assets/example_non_compliant_output.png)
+![Question 1:](assets/find_answer_LLM_or_Lang.png)
+
+![Question 1:](assets/find_answer_LLM_or_Lang_2.png)
