@@ -160,9 +160,9 @@ compliance-inspector/
 ├── quick_demo.py        # lightweight 8-frame demo
 └── app.py               # Main app file with UI
 ```
-## Execution and mini-demo 
+## Execution and screenshots 
 
-Here are 2 examples of outputs when running the demo from the CLI. Attention: in my example: `test_reasoning.py` corresponds to `quick_demo.py` in this project - it is the same code but the file on the testing environment had a different name.
+I am listing here a few screenshots taken during the extended demo execution, talking to the agent/app in plain language to ask about the compliance process or the sops in my case, and NemoClaw screens for install and config and dashboard:
 
 Here are a few examples (running the tool):
 
@@ -175,3 +175,9 @@ Here are a few examples (running the tool):
 ![Question 1:](assets/find_answer_LLM_or_Lang.png)
 
 ![Question 1:](assets/find_answer_LLM_or_Lang_2.png)
+
+NemoClaw: configuration
+
+![Install and config](assets/assets/NemoClaw_install.png)
+
+![Dashboard view](assets/NemoClaw_entering_dashboard.png)
