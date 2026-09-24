@@ -107,7 +107,7 @@ Initial iterations of the prompt (based on the three code changes listed above) 
 To achieve this standardized calibration, **Rule 2 ("Seeing the product in a certain assembled state does NOT count") was turned off.** 
 * **Why it was removed**: Imposing this rule made the pipeline overly strict and rigid. In real-world video footage, an operator might obscure the camera during the exact moment of an action, but the subsequent frames clearly show the completed result (e.g., a bolt fully tightened). 
 * By disabling this constraint, the pass filter behaves more naturally, allowing the model to accept clear visual evidence of a completed assembly step without triggering unjustified failures.
-* **SOP cleanup**: We reduced the large number of visual cue indicators previously detailing each step of the process in the SOP files. These extra indicators had added reasoning friction and increased the number of tokens used. For a comparison of the old SOP model versus the current one, see: [TJUSIG SOP](data/sops/sop_tjusig.json) vs. [the Old TJUSIG SOP](assets/old_sop_tjusig.json).
+* **SOP cleanup**: We reduced the large number of visual cue indicators previously detailing each step of the process in the SOP files. These extra indicators had added reasoning friction and increased the number of tokens used. For a comparison of the old SOP model versus the current one, see: [TJUSIG SOP](data/sops/sop_tjusig.json) vs. [the old TJUSIG SOP](data/sops/old_sop_tjusig.json).
 
 
 ## Setup
@@ -166,7 +166,7 @@ Here are 2 examples of outputs when running the demo from the CLI. Attention: in
 
 Here are a few examples (running the tool):
 
-* Validation and checks
+* Compliance check and analysis
 
 ![Compliance check and analysis (with missing steps)](assets/compliance_analysis.png)
 
