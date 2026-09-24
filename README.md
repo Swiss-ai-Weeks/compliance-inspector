@@ -8,6 +8,9 @@ Built for the **Swiss AI Weeks Hackathon**, this project solves the scalability 
 
 ## 🚀 Key Features
 
+### 🎥 Watch the Demo
+<video src="./WebDemo.mp4" width="100%" controls></video>
+
 * **AI Video Understanding:** Leverages **NVIDIA Cosmos NIM** (`cosmos3-nano-reasoner`) to understand complex manual assembly actions in 10-second sliding windows.
 * **Dual Alignment Engines:** 
   * **Global Audit (Grid Mode):** Uses dynamic programming to guarantee a mathematically perfect offline timeline across the entire video.
